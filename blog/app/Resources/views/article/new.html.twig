@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Article creation</h1>
+
+    {{ form_start(form) }}
+         {{ form_label(form.titre, null, {'label_attr': {'style':'color:red' }}) }}
+        {{ form_errors(form.titre) }}
+            
+        {{ form_widget(form.titre, { 'attr':  {
+            'class': 'toto'
+        }}) }}
+            
+        <input type="submit" value="Create" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('article_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}
