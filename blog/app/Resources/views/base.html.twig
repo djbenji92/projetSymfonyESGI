@@ -13,23 +13,27 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        <header>
-          <nav>
-            <div class="icon">Titre</div>
-            <ul>
-              <li>Accueil</li>
-              <li>Categorie1</li>
-              <li>Categorie2</li>
-              <li>Categorie3</li>
-            </ul>
-          </nav>
-        </header>
-        {% block body %}
+        <div class="page">
+          <header>
+            <nav>
+              <div class="icon">Titre</div>
+              <ul>
+                <li>Accueil</li>
+                <li>Categorie1</li>
+                <li>Categorie2</li>
+                <li>Categorie3</li>
+                <li><a href="/register">Inscription</a></li>
+                <li><a href="/login">Connexion</a></li>
+              </ul>
+            </nav>
+          </header>
+          {% block body %}
 
-        {% endblock %}
-        <footer>
-
-        </footer>
+          {% endblock %}
+          <footer>
+            Footer
+          </footer>
+        </div>
 
         {% block javascripts %}{% endblock %}
     </body>
