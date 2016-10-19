@@ -6,8 +6,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use BlogBundle\Entity\Article;
-use BlogBundle\Form\ArticleType;
+use BlogBundle\Entity\User;
+use BlogBundle\Form\UserType;
 
 /**
  * Article controller.
@@ -62,43 +62,38 @@ class UserController extends Controller
     /**
      * Finds and displays a Article entity.
      *
-     * @Route("article/{id}", name="article_show")
+     * @Route("admin/user/{id}", name="user_show")
      * @Method("GET")
      */
-    public function showAction(Article $article)
+    public function showAction(User $user)
     {
-        $deleteForm = $this->createDeleteForm($article);
-
-        return $this->render('article/show.html.twig', array(
-            'article' => $article,
-            'delete_form' => $deleteForm->createView(),
+        return $this->render('user/show.html.twig', array(
+            'user' => $user
         ));
     }
 
     /**
      * Displays a form to edit an existing Article entity.
      *
-     * @Route("admin/article/{id}/edit", name="article_edit")
+     * @Route("admin/user/{id}/edit", name="user_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, Article $article)
+    public function editAction(Request $request, User $user)
     {
-        $deleteForm = $this->createDeleteForm($article);
-        $editForm = $this->createForm('BlogBundle\Form\ArticleType', $article);
+        $editForm = $this->createForm('BlogBundle\Form\UserType', $user);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($article);
+            $em->persist($user);
             $em->flush();
 
-            return $this->redirectToRoute('article_edit', array('id' => $article->getId()));
+            return $this->redirectToRoute('user_edit', array('id' => $user->getId()));
         }
 
-        return $this->render('article/edit.html.twig', array(
-            'article' => $article,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+        return $this->render('user/edit.html.twig', array(
+            'user' => $user,
+            'edit_form' => $editForm->createView()
         ));
     }
 
