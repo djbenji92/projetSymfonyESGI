@@ -34,6 +34,13 @@ ul{
   height:20px;
   color:white;
 }
+li a:link{
+  text-decoration:none;
+  color:white;
+}
+li a:visited {
+  color: white;
+}
 
 
 .content{

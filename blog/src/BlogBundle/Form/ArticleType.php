@@ -32,10 +32,9 @@ class ArticleType extends AbstractType
                 )
             )
             ->add('date', DateTimeType::class)
-            ->add('validate', ChoiceType::class)
         ;
     }
-    
+
     /**
      * @param OptionsResolver $resolver
      */

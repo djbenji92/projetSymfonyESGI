@@ -23,26 +23,24 @@
             </tr>
             <tr>
                 <th>Date</th>
-                <td>{{ article.date }}</td>
-            </tr>
-            <tr>
-                <th>Validate</th>
-                <td>{% if article.validate %}Yes{% else %}No{% endif %}</td>
+                <td>{{ article.date|date('Y-m-d') }}</td>
             </tr>
         </tbody>
     </table>
+    {% if is_granted("ROLE_ADMIN") %}
+      <ul>
+          <li>
+              <a href="{{ path('article_index') }}">Back to the list</a>
+          </li>
+          <li>
+              <a href="{{ path('article_edit', { 'id': article.id }) }}">Edit</a>
+          </li>
 
-    <ul>
-        <li>
-            <a href="{{ path('article_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('article_edit', { 'id': article.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+          <li>
+              {{ form_start(delete_form) }}
+                  <input type="submit" value="Delete">
+              {{ form_end(delete_form) }}
+          </li>
+      </ul>
+    {% endif %}
 {% endblock %}

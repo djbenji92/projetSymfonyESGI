@@ -12,14 +12,14 @@ use BlogBundle\Form\ArticleType;
 /**
  * Article controller.
  *
- * @Route("/article")
+ * @Route("/")
  */
 class ArticleController extends Controller
 {
     /**
      * Lists all Article entities.
      *
-     * @Route("/", name="article_index")
+     * @Route("/admin/article", name="article_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -36,7 +36,7 @@ class ArticleController extends Controller
     /**
      * Creates a new Article entity.
      *
-     * @Route("/new", name="article_new")
+     * @Route("admin/article/new", name="article_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -62,7 +62,7 @@ class ArticleController extends Controller
     /**
      * Finds and displays a Article entity.
      *
-     * @Route("/{id}", name="article_show")
+     * @Route("article/{id}", name="article_show")
      * @Method("GET")
      */
     public function showAction(Article $article)
@@ -78,7 +78,7 @@ class ArticleController extends Controller
     /**
      * Displays a form to edit an existing Article entity.
      *
-     * @Route("/{id}/edit", name="article_edit")
+     * @Route("admin/article/{id}/edit", name="article_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Article $article)
@@ -105,7 +105,7 @@ class ArticleController extends Controller
     /**
      * Deletes a Article entity.
      *
-     * @Route("/{id}", name="article_delete")
+     * @Route("admin/article/{id}", name="article_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Article $article)

@@ -20,7 +20,7 @@
 
           <nav>
             <ul>
-                <li>Rédiger un un article</li>
+                <li><a href="{{path('article_index')}}">Rédiger un un article</a></li>
                 <li>Ajouter une catégorie</li>
               {% if is_granted("ROLE_ADMIN") %}
                 <li>Gestion des utilisateurs</li>

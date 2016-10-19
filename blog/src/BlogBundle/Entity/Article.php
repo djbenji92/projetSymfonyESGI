@@ -49,13 +49,6 @@ class Article
      */
     private $date;
 
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="validate", type="boolean")
-     */
-    private $validate;
-
 
     /**
      * Get id
@@ -163,28 +156,4 @@ class Article
         return $this->date;
     }
 
-    /**
-     * Set validate
-     *
-     * @param boolean $validate
-     *
-     * @return Article
-     */
-    public function setValidate($validate)
-    {
-        $this->validate = $validate;
-
-        return $this;
-    }
-
-    /**
-     * Get validate
-     *
-     * @return bool
-     */
-    public function getValidate()
-    {
-        return $this->validate;
-    }
 }
-
