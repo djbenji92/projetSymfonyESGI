@@ -21,21 +21,9 @@ class DispatcherController extends Controller
     }
 
     /**
-     * show home page for redactor after login
-     *
-     * @Route("/redacteur", name="redacteur_home")
-     * @Method("GET")
-     */
-    public function pageRedacteurAction()
-    {
-      return $this->render('admin/index.html.twig');
-      //return $this->render('dispatcher/redacteur.html.twig');
-    }
-
-    /**
      * show home page for admin after login
      *
-     * @Route("/administrateur", name="admin_home")
+     * @Route("/admin", name="admin_home")
      * @Method("GET")
      */
     public function pageAdminAction()
@@ -56,7 +44,7 @@ class DispatcherController extends Controller
           return $this->redirectToRoute('admin_home');
       }
       else if($securityContext->isGranted('ROLE_REDACTEUR')){
-          return $this->redirectToRoute('redacteur_home');
+          return $this->redirectToRoute('admin_home');
       }
       else{
           return $this->redirectToRoute('utilisateur_home');
