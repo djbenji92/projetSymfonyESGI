@@ -1,6 +1,7 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/base.html.twig' %}
 
 {% block body %}
+  <div class="content">
     <h1>Category list</h1>
 
     <table>
@@ -36,4 +37,5 @@
             <a href="{{ path('category_new') }}">Create a new entry</a>
         </li>
     </ul>
+  </div>
 {% endblock %}

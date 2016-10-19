@@ -21,7 +21,7 @@
           <nav>
             <ul>
                 <li><a href="{{path('article_index')}}">Rédiger un un article</a></li>
-                <li>Ajouter une catégorie</li>
+                <li><a href="{{path('category_index')}}">Ajouter une catégorie</a></li>
               {% if is_granted("ROLE_ADMIN") %}
                 <li>Gestion des utilisateurs</li>
               {% endif %}
