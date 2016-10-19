@@ -22,9 +22,9 @@
                 <li>Categorie1</li>
                 <li>Categorie2</li>
                 <li>Categorie3</li>
-                <li><a href="/register">Inscription</a></li>
-                <li><a href="/login">Connexion</a></li>
-                <li><a href="/logout">Deconnexion</a></li>
+                <li><a href="{{ path('fos_user_registration_register') }}">Inscription</a></li>
+                <li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
+                <li><a href="{{ path('fos_user_security_logout') }}">Deconnexion</a></li>
               </ul>
             </nav>
           </header>
