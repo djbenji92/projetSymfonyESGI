@@ -28,7 +28,8 @@ class DispatcherController extends Controller
      */
     public function pageRedacteurAction()
     {
-        return $this->render('dispatcher/redacteur.html.twig');
+      return $this->render('admin/index.html.twig');
+      //return $this->render('dispatcher/redacteur.html.twig');
     }
 
     /**
@@ -39,7 +40,8 @@ class DispatcherController extends Controller
      */
     public function pageAdminAction()
     {
-        return $this->render('dispatcher/admin.html.twig');
+        return $this->render('admin/index.html.twig');
+        //return $this->render('dispatcher/admin.html.twig');
     }
 
     /**
