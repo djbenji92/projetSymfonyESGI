@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <div class="authentification">
+    <h2>Inscription</h2>
+    {% block fos_user_content %}
+      {% include "FOSUserBundle:Registration:register_content.html.twig" %}
+    {% endblock fos_user_content %}
+  </div>
+{% endblock %}
