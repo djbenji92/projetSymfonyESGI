@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8326dd66-645c-4982-9515-21473bb5f323" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/blog/app/Resources/views/base.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog/composer.lock" afterPath="$PROJECT_DIR$/blog/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog/web/config.php" afterPath="$PROJECT_DIR$/blog/web/config.php" />
     </list>
     <ignored path="projetSymfonyESGI.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,8 +37,8 @@
       <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/blog/app/Resources/views/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="26" column="56" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
+            <state relative-caret-position="612">
+              <caret line="36" column="19" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -267,16 +265,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1476863518591</updated>
-      <workItem from="1476863519918" duration="1961000" />
+      <workItem from="1476863519918" duration="2285000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1961000" />
+    <option name="totallyTimeSpent" value="2285000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="696" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.275" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -315,8 +313,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/blog/app/Resources/views/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="26" column="56" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
+        <state relative-caret-position="612">
+          <caret line="36" column="19" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
           <folding />
         </state>
       </provider>
