@@ -23,7 +23,7 @@
                 <li><a href="{{path('article_index')}}">Rédiger un un article</a></li>
                 <li><a href="{{path('category_index')}}">Ajouter une catégorie</a></li>
               {% if is_granted("ROLE_ADMIN") %}
-                <li>Gestion des utilisateurs</li>
+                <li><a href="{{path('user_index')}}">Gestion des utilisateurs</a></li>
               {% endif %}
             </ul>
           </nav>
