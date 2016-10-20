@@ -6,7 +6,7 @@ use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use BlogBundle\Entity\Article;
 
-class LoadUserData implements FixtureInterface
+class LoadArticleData implements FixtureInterface
 {
     public function load(ObjectManager $manager)
     {

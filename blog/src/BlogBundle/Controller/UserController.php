@@ -34,32 +34,6 @@ class UserController extends Controller
     }
 
     /**
-     * Creates a new Article entity.
-     *
-     * @Route("admin/article/new", name="article_new")
-     * @Method({"GET", "POST"})
-     */
-    public function newAction(Request $request)
-    {
-        $article = new Article();
-        $form = $this->createForm('BlogBundle\Form\ArticleType', $article);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($article);
-            $em->flush();
-
-            return $this->redirectToRoute('article_show', array('id' => $article->getId()));
-        }
-
-        return $this->render('article/new.html.twig', array(
-            'article' => $article,
-            'form' => $form->createView(),
-        ));
-    }
-
-    /**
      * Finds and displays a Article entity.
      *
      * @Route("admin/user/{id}", name="user_show")
