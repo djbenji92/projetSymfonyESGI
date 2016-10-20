@@ -3,6 +3,7 @@
 namespace BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Article
@@ -27,6 +28,13 @@ class Article
      * @ORM\Column(name="titre", type="string", length=255, unique=true)
      */
     private $titre;
+
+    /**
+     * @var string
+     * @Gedmo\Slug(fields={"titre"}, updatable=false, separator="-")
+     * @ORM\Column(name="slug", type="string", length=255)
+     */
+    private $slug;
 
     /**
      * @var string
