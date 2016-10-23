@@ -27,6 +27,10 @@
             </tr>
         </tbody>
     </table>
+
+    <div>
+        {{ article.contenu|raw  }}
+    </div>
     {% if is_granted("ROLE_ADMIN") %}
       <ul>
           <li>
