@@ -93,6 +93,16 @@ class Article
     }
 
     /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
      * Set resume
      *
      * @param string $resume

@@ -50,7 +50,7 @@ class ArticleController extends Controller
             $em->persist($article);
             $em->flush();
 
-            return $this->redirectToRoute('article_show', array('id' => $article->getId()));
+            return $this->redirectToRoute('article_show', array('slug' => $article->getSlug()));
         }
 
         return $this->render('article/new.html.twig', array(
@@ -62,7 +62,7 @@ class ArticleController extends Controller
     /**
      * Finds and displays a Article entity.
      *
-     * @Route("article/{id}", name="article_show")
+     * @Route("article/{slug}", name="article_show")
      * @Method("GET")
      */
     public function showAction(Article $article)

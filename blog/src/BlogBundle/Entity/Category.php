@@ -3,6 +3,7 @@
 namespace BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Category
@@ -27,6 +28,14 @@ class Category
      * @ORM\Column(name="nom", type="string", length=255)
      */
     private $nom;
+
+    /**
+
+     * @var string
+     * @Gedmo\Slug(fields={"nom"}, updatable=false, separator="-")
+     * @ORM\Column(name="slug", type="string", length=255)
+     */
+    private $slug;
 
 
     /**
@@ -54,6 +63,16 @@ class Category
     }
 
     /**
+     * Get slug
+     *
+     * @return int
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
      * Get nom
      *
      * @return string
@@ -63,4 +82,3 @@ class Category
         return $this->nom;
     }
 }
-

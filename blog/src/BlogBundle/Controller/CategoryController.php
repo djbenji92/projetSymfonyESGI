@@ -50,7 +50,7 @@ class CategoryController extends Controller
             $em->persist($category);
             $em->flush();
 
-            return $this->redirectToRoute('category_show', array('id' => $category->getId()));
+            return $this->redirectToRoute('category_show', array('slug' => $category->getSlug()));
         }
 
         return $this->render('category/new.html.twig', array(
@@ -62,7 +62,7 @@ class CategoryController extends Controller
     /**
      * Finds and displays a Category entity.
      *
-     * @Route("category/{id}", name="category_show")
+     * @Route("category/{slug}", name="category_show")
      * @Method("GET")
      */
     public function showAction(Category $category)
