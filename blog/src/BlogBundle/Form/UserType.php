@@ -5,11 +5,8 @@ namespace BlogBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+
 
 class UserType extends AbstractType
 {
@@ -20,8 +17,15 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('roles', CollectionType::class, array(
-                'label' => 'Role'
+            ->add('roles', ChoiceType::class, array(
+                    'label' => 'Role',
+                    'mapped' => true,
+                    'multiple' => true,
+                    'choices' => array(
+                        'Administrateur' => 'ROLE_ADMIN',
+                        'Utilisateur' => 'ROLE_USER',
+                        'Rédacteur' => 'ROLE_REDACTEUR'
+                    ) 
                 )
             )
         ;
