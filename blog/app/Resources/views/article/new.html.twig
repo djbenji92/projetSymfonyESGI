@@ -12,6 +12,12 @@
               'class': 'toto'
           }}) }}
 
+          <ul>
+            {% for categorie in form.categories %}
+              <li>{{form_row(categorie.nom)}}</li>
+            {% endfor %}
+          </ul>
+
           <input type="submit" value="Create" />
       {{ form_end(form) }}
 

@@ -64,9 +64,8 @@ class Article
      */
     private $date;
 
-    function __construct(){
-      $this->date = new \DateTime();
-    }
+
+    
 
     /**
      * Get id
@@ -211,15 +210,5 @@ class Article
         $this->categories = $categories;
 
         return $this;
-    }
-
-    /**
-     * Get categories
-     *
-     * @return \BlogBundle\Entity\Category
-     */
-    public function getCategories()
-    {
-        return $this->categories;
     }
 }

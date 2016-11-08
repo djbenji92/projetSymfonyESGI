@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use BlogBundle\Entity\Article;
+use BlogBundle\Entity\Category;
 use BlogBundle\Form\ArticleType;
 
 /**
@@ -41,7 +42,9 @@ class ArticleController extends Controller
      */
     public function newAction(Request $request)
     {
+
         $article = new Article();
+
         $form = $this->createForm('BlogBundle\Form\ArticleType', $article);
         $form->handleRequest($request);
 
