@@ -20,9 +20,12 @@
               <ul>
                 <li>Accueil</li>
                 <li>Nos articles récents</li>
-                <li>Categorie1</li>
-                <li>Categorie2</li>
-                <li>Categorie3</li>
+
+                {{ render(controller(
+                    'BlogBundle:Default:navigationCateg'
+                )) }}
+
+
                 <li><a href="{{ path('fos_user_registration_register') }}">Inscription</a></li>
                 <li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
                 {% if app.user %}
