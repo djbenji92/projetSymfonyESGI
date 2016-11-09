@@ -21,6 +21,12 @@ class Article
     protected $categories;
 
     /**
+    * @ORM\ManyToOne(targetEntity="BlogBundle\Entity\User")
+    * @ORM\JoinColumn(nullable=false)
+    */
+    protected $author;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -221,5 +227,29 @@ class Article
     public function getCategories()
     {
         return $this->categories;
+    }
+
+    /**
+     * Set author
+     *
+     * @param \BlogBundle\Entity\User $author
+     *
+     * @return Article
+     */
+    public function setAuthor(\BlogBundle\Entity\User $author)
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get author
+     *
+     * @return \BlogBundle\Entity\User
+     */
+    public function getAuthor()
+    {
+        return $this->author;
     }
 }

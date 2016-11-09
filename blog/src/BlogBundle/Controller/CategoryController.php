@@ -72,7 +72,8 @@ class CategoryController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        $articles = $em->getRepository('BlogBundle:Article')->findByCategories($category);
+        //$articles = $em->getRepository('BlogBundle:Article')->findByCategories($category);
+        $articles = $em->getRepository('BlogBundle:Article')->findByCategoryOrderedByDate($category);
 
         return $this->render('category/show.html.twig', array(
             'category' => $category,
