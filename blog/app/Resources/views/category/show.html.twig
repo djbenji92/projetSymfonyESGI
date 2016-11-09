@@ -1,32 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Category</h1>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ category.id }}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td>{{ category.nom }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <h1>Les articles de la catégorie {{ category.nom}}</h1>
+    {% for article in articles %}
+            <h2><a href="{{ path('article_show', { 'slug': article.slug }) }}">{{ article.titre }}</a></h2>
+            <p>{{ article.resume }}</p>
+            <p>{{ article.date|date('Y-m-d') }}</p>
+    {% endfor %}
 
-    <ul>
-        <li>
-            <a href="{{ path('category_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('category_edit', { 'id': category.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+
+    <a href="{{ path('category_index') }}">Retour a la liste des categories</a>
+
+
 {% endblock %}

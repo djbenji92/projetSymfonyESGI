@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use BlogBundle\Entity\Article;
 use BlogBundle\Entity\Category;
 use BlogBundle\Form\CategoryType;
 
@@ -67,11 +68,16 @@ class CategoryController extends Controller
      */
     public function showAction(Category $category)
     {
-        $deleteForm = $this->createDeleteForm($category);
+      //  $deleteForm = $this->createDeleteForm($category);
+
+        $em = $this->getDoctrine()->getManager();
+
+        $articles = $em->getRepository('BlogBundle:Article')->findByCategories($category);
 
         return $this->render('category/show.html.twig', array(
             'category' => $category,
-            'delete_form' => $deleteForm->createView(),
+            //'delete_form' => $deleteForm->createView(),
+            'articles' => $articles,
         ));
     }
 
