@@ -8,6 +8,14 @@
             <tr>
                 <th>Crée par </th>
                 <td>{{ article.author }} le {{ article.date|date('Y-m-d')}}</td>
+                {% if userSuivi %}
+                    <div id="stopSuivre" class="suivre-user">Ne plus suivre</div>
+                    <div id="suivre" class="suivre-user">Suivre</div>
+                {% endif %}
+                {% if userSuivi == false %}
+                    <div id="suivre" class="suivre-user">Suivre</div>
+                    <div id="stopSuivre" class="suivre-user">Ne plus suivre</div>
+                {% endif %}
             </tr>
             <tr>
                 <th>Titre</th>
@@ -38,4 +46,51 @@
           </li>
       </ul>
     {% endif %}
+
+
+    <script>
+    var userSuivi = "{{userSuivi}}";
+    if(userSuivi){
+      $('#suivre').hide();
+
+    }else {
+      $('#stopSuivre').hide();
+    }
+
+    var user= "{{ article.author }}";
+    var follower = "{{follower}}";
+
+    $( "#suivre" ).click(function() {
+      $.ajax({
+         url : Routing.generate('follower_add', {'user':user, 'follower':follower}),
+         type : 'POST',
+         success : function(res, statut){
+             $('#stopSuivre').show();
+             $('#suivre').hide();
+         },
+
+         error : function(resultat, statut, erreur){
+
+         },
+
+      });
+
+    });
+
+    $( "#stopSuivre" ).click(function() {
+      $.ajax({
+         url : Routing.generate('follower_delete', {'user':user, 'follower':follower}),
+         type : 'POST',
+         success : function(res, statut){
+             $('#stopSuivre').hide();
+             $('#suivre').show();
+         },
+
+         error : function(resultat, statut, erreur){
+
+         },
+
+      });
+    });
+    </script>
 {% endblock %}

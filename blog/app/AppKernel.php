@@ -1,4 +1,4 @@
-<?php
+  <?php
 
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

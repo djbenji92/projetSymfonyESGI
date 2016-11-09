@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Followers list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for follower in followers %}
+            <tr>
+                <td><a href="{{ path('follower_show', { 'id': follower.id }) }}">{{ follower.id }}</a></td>
+                <td>{{ follower.date }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('follower_show', { 'id': follower.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('follower_edit', { 'id': follower.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('follower_new') }}">Create a new follower</a>
+        </li>
+    </ul>
+{% endblock %}

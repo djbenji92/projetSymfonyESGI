@@ -91,9 +91,29 @@ class ArticleController extends Controller
     {
         $deleteForm = $this->createDeleteForm($article);
 
+
+        $user = $article->getAuthor();
+        $follower = $this->getUser();
+        $em = $this->getDoctrine()->getManager();
+        $nbUser = $em->getRepository('BlogBundle:Follower')->findUserFollow($user, $follower);
+
+        $logger = $this->get('logger');
+        $logger->info($nbUser);
+        $logger->info($user);
+        $logger->info($follower);
+
+        if($nbUser > 0){
+          $userSuivi = true;
+        } else{
+          $userSuivi = false;
+        }
+
+
         return $this->render('article/show.html.twig', array(
             'article' => $article,
             'delete_form' => $deleteForm->createView(),
+            'userSuivi' => $userSuivi,
+            'follower' => $follower,
         ));
     }
 

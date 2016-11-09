@@ -130,3 +130,14 @@ footer{
 .resumeArticle{
   color:#2B2E39;
 }
+
+.suivre-user{
+  width:200px;
+  height:40px;
+  color:white;
+  text-align:center;
+  border-radius:15px;
+  background-color: #2B2E39;
+  line-height: 40px;
+  cursor:pointer;
+}
