@@ -10,4 +10,13 @@ namespace BlogBundle\Repository;
  */
 class ArticleRepository extends \Doctrine\ORM\EntityRepository
 {
+  public function findAllOrderedByDate()
+    {
+        $query =  $this
+            ->createQueryBuilder('a')
+            ->orderBy('a.date', 'DESC')
+            ->getQuery();
+
+         return $query->getResult();
+    }
 }
