@@ -25,12 +25,18 @@
                 <th>Date</th>
                 <td>{{ article.date|date('Y-m-d') }}</td>
             </tr>
+            <tr>
+                <th>Auteur</th>
+                <td>{{ article.author }}</td>
+            </tr>
         </tbody>
     </table>
 
     <div>
         {{ article.contenu|raw  }}
     </div>
+
+    <div class="fb-comments" data-href="{{ app.request.uri }}" data-numposts="5"></div>
     {% if is_granted("ROLE_ADMIN") %}
       <ul>
           <li>
