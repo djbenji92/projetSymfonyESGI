@@ -27,7 +27,7 @@
             <nav>
               <div class="icon">Titre</div>
               <ul>
-                <li>Accueil</li>
+                <li><a href="{{path('homepage')}}">Accueil</a></li>
                 <li><a href="{{path('article_recent_index')}}">Nos articles récents</a></li>
 
                 {{ render(controller(
@@ -41,7 +41,7 @@
                 <li><a href="{{ path('fos_user_security_logout') }}">Deconnexion</a></li>
                 {% endif %}
                 {% if  is_granted("ROLE_REDACTEUR") %}
-                  <li><a href="/admin">Espace administrateur</a></li>
+                  <li><a href="{{path('admin_home')}}">Espace administrateur</a></li>
                 {% endif %}
               </ul>
             </nav>
