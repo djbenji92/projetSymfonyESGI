@@ -6,29 +6,14 @@
     <table>
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ article.id }}</td>
+                <th>Crée par </th>
+                <td>{{ article.author }} le {{ article.date|date('Y-m-d')}}</td>
             </tr>
             <tr>
                 <th>Titre</th>
                 <td>{{ article.titre }}</td>
             </tr>
-            <tr>
-                <th>Resume</th>
-                <td>{{ article.resume }}</td>
-            </tr>
-            <tr>
-                <th>Contenu</th>
-                <td>{{ article.contenu }}</td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{{ article.date|date('Y-m-d') }}</td>
-            </tr>
-            <tr>
-                <th>Auteur</th>
-                <td>{{ article.author }}</td>
-            </tr>
+
         </tbody>
     </table>
 

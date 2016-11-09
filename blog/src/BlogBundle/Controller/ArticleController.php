@@ -35,6 +35,24 @@ class ArticleController extends Controller
     }
 
     /**
+     * Lists all Article entities.
+     *
+     * @Route("/articles-recents", name="article_recent_index")
+     * @Method("GET")
+     */
+    public function articlesRecentsAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $articles = $em->getRepository('BlogBundle:Article')->findAllOrderedByDate();
+        //$articles = $em->getRepository('BlogBundle:Article')->findAll();
+
+        return $this->render('article/articlesRecent.html.twig', array(
+            'articles' => $articles,
+        ));
+    }
+
+    /**
      * Creates a new Article entity.
      *
      * @Route("admin/article/new", name="article_new")
@@ -50,6 +68,7 @@ class ArticleController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $article->setAuthor($this->getUser());
             $em->persist($article);
             $em->flush();
 

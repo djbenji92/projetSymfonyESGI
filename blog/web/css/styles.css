@@ -102,3 +102,31 @@ footer{
   color:white;
   font-size:20px;
 }
+
+.itemArticle{
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:10px;
+  margin-bottom:10px;
+  display:flex;
+  padding:10px;
+  width:800px;
+  height:100px;
+  border: 4px solid #2B2E39;
+  /*border-radius:8px;*/
+}
+.photoArticle{
+  display:flex;
+  width:100px;
+  height:100px;
+}
+.contentArticle{
+}
+.titreArticle{
+  color:#DE4F4F;
+  font-weight:bold;
+  font-size:24px;
+}
+.resumeArticle{
+  color:#2B2E39;
+}
