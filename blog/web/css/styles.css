@@ -141,3 +141,28 @@ footer{
   line-height: 40px;
   cursor:pointer;
 }
+#notification{
+  overflow-y:scroll;
+  width:300px;
+  min-height:50px;
+  max-height:300px;
+  position:absolute;
+  left:100%;
+  margin-left:-300px;
+  display:none;
+}
+.notif{
+  height: 50px;
+  width:300px;
+  border-bottom:1px solid #2B2E39;
+  cursor:pointer;
+  padding:15px;
+  color:#2B2E39;
+}
+
+.viewed{
+    background-color: white;
+}
+.not-viewed{
+    background-color: #E9EBEC;
+}

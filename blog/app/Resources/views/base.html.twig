@@ -49,8 +49,7 @@
                 <li><img id="buttonNotif" style="width:30px; height:30px;position:absolute; left:100%; margin-left:-100px; cursor:pointer;" src="{{ asset('img/notification.png') }}"</li>
               </ul>
             </nav>
-            <div id="notification" style=" overflow-y:scroll; width:300px;min-height:50px; max-height:300px; position:absolute; left:100%; margin-left:-300px; display:none;">
-              <div style="height: 50px; width:300px; border-bottom:1px solid #2B2E39; background-color: #E9EBEC; cursor:pointer; padding:15px; color:#2B2E39">Nouvel article publié par test</div>
+            <div id="notification">
             </div>
           </header>
           {% block body %}
@@ -65,22 +64,37 @@
         </div>
         <script>
           function checkNotifs(){
+
+            var content = "";
+            var nbNotif = 0;
+
             $.ajax({
                url : Routing.generate('check_notifs', {}),
                type : 'GET',
                success : function(res, statut){
-                   alert("Appel de l'API reussi");
-                   alert(res);
+                   console.log(res);
+                   res.data.forEach(function(elem){
+                     console.log(elem);
+                     if(elem.viewed == true)
+                       content += '<div class="notif viewed"><a href="'+Routing.generate("article_show", {"slug":elem.slug})+'">'+elem.user+' a posté un nouveau article</br>'+elem.titre+'</a></div>';
+                     else
+                     content += '<div class="notif not-viewed" data-id="'+elem.id+'"><a href="'+Routing.generate("article_show", {"slug":elem.slug})+'">'+elem.user+' a posté un nouveau article</br>'+elem.titre+'</a></div>';
+
+
+                   })
+
+                   alert(content);
+                   $('#notification').html(content);
                },
 
                error : function(resultat, statut, erreur){
-                 alert("Echec de l'appel de l'API");
+                 //alert("Echec de l'appel de l'API");
                },
 
             });
           }
           checkNotifs();
-          setInterval(checkNotifs, 10000);
+          //setInterval(checkNotifs, 10000);
 
           $( "#buttonNotif" ).click(function() {
             $("#notification").toggle();
