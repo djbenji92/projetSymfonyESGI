@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use BlogBundle\Entity\Article;
 use BlogBundle\Entity\Category;
+use BlogBundle\Entity\Notification;
 use BlogBundle\Form\ArticleType;
 
 /**
@@ -71,6 +72,22 @@ class ArticleController extends Controller
             $article->setAuthor($this->getUser());
             $em->persist($article);
             $em->flush();
+
+            $logger = $this->get('logger');
+
+            $followers = $em->getRepository('BlogBundle:Follower')->findByUser($this->getUser());
+            foreach($followers as $follower){
+              $notification = new Notification();
+              $notification->setUser($follower->getFollower());
+              $notification->setArticle($article);
+              $notification->setViewed(false);
+
+              $em->persist($notification);
+              $em->flush();
+
+
+              //$logger->info('follower: ' . $follower->getFollower()->getUsername());
+            }
 
             return $this->redirectToRoute('article_show', array('slug' => $article->getSlug()));
         }
