@@ -78,7 +78,7 @@
                      if(elem.viewed == true)
                        content += '<div class="notif viewed"><a href="'+Routing.generate("article_show", {"slug":elem.slug})+'">'+elem.user+' a posté un nouveau article</br>'+elem.titre+'</a></div>';
                      else
-                     content += '<div class="notif not-viewed" data-id="'+elem.id+'"><a href="'+Routing.generate("article_show", {"slug":elem.slug})+'">'+elem.user+' a posté un nouveau article</br>'+elem.titre+'</a></div>';
+                     content += '<div class="notif not-viewed" onclick="notificationViewed('+elem.id+')" >'+elem.user+' a posté un nouveau article</br>'+elem.titre+'</div>';
 
 
                    })
@@ -100,6 +100,24 @@
             $("#notification").toggle();
             //$('#notification').html('<p>TEST</p>');
           });
+
+          function notificationViewed(id){
+            alert(id);
+            $.ajax({
+               url : Routing.generate('update_viewed', {}),
+               type : 'POST',
+               data: 'id=' + id,
+               success : function(res, statut){
+                  //alert(res);
+                  //console.log(res);
+               },
+
+               error : function(resultat, statut, erreur){
+                 //alert("Echec de l'appel de l'API");
+               },
+
+            });
+          }
         </script>
 
     </body>
