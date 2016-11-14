@@ -72,48 +72,48 @@
                url : Routing.generate('check_notifs', {}),
                type : 'GET',
                success : function(res, statut){
-                   console.log(res);
+                   //console.log(res);
                    res.data.forEach(function(elem){
-                     console.log(elem);
-                     if(elem.viewed == true)
+                     //console.log(elem);
+                     if(elem.viewed == true){
                        content += '<div class="notif viewed"><a href="'+Routing.generate("article_show", {"slug":elem.slug})+'">'+elem.user+' a posté un nouveau article</br>'+elem.titre+'</a></div>';
-                     else
-                     content += '<div class="notif not-viewed" onclick="notificationViewed('+elem.id+')" >'+elem.user+' a posté un nouveau article</br>'+elem.titre+'</div>';
-
-
+                     }
+                     else{
+                       //alert(elem.slug);
+                       //var varFunction = elem.id +  ','+  elem.slug;
+                       content += '<div class="notif not-viewed" onclick="notificationViewed('+elem.id+ ')" >'+elem.user+' a posté un nouveau article</br>'+elem.titre+'</div>';
+                     }
                    })
-
-                   alert(content);
+                   //alert(content);
                    $('#notification').html(content);
                },
 
                error : function(resultat, statut, erreur){
-                 //alert("Echec de l'appel de l'API");
+                 alert("Echec de l'appel de l'API");
                },
 
             });
           }
           checkNotifs();
-          //setInterval(checkNotifs, 10000);
+          setInterval(checkNotifs, 10000);
 
           $( "#buttonNotif" ).click(function() {
             $("#notification").toggle();
-            //$('#notification').html('<p>TEST</p>');
           });
 
+          //function notificationViewed(id, slug){
           function notificationViewed(id){
-            alert(id);
+
             $.ajax({
                url : Routing.generate('update_viewed', {}),
                type : 'POST',
                data: 'id=' + id,
                success : function(res, statut){
-                  //alert(res);
-                  //console.log(res);
+                  document.location.href = Routing.generate("article_show", {"slug":res});
                },
 
                error : function(resultat, statut, erreur){
-                 //alert("Echec de l'appel de l'API");
+                 alert("Echec de l'appel de l'API");
                },
 
             });
