@@ -5,12 +5,12 @@ namespace BlogBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Follower
+ * Notification
  *
- * @ORM\Table(name="follower")
- * @ORM\Entity(repositoryClass="BlogBundle\Repository\FollowerRepository")
+ * @ORM\Table(name="notification")
+ * @ORM\Entity(repositoryClass="BlogBundle\Repository\NotificationRepository")
  */
-class Follower
+class Notification
 {
     /**
      * @var int
@@ -28,21 +28,24 @@ class Follower
     private $user;
 
     /**
-    * @ORM\ManyToOne(targetEntity="BlogBundle\Entity\User")
+    * @ORM\ManyToOne(targetEntity="BlogBundle\Entity\Article")
     * @ORM\JoinColumn(nullable=false)
     */
-    private $follower;
+    private $article;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="datetimetz")
+     * @ORM\Column(name="date", type="datetime")
      */
     private $date;
 
-    function __construct(){
-      $this->date = new \DateTime();
-    }
+    /**
+     * @var \Boolean
+     *
+     * @ORM\Column(name="viewed", type="boolean")
+     */
+    private $viewed;
 
 
     /**
@@ -60,7 +63,7 @@ class Follower
      *
      * @param string $user
      *
-     * @return Follower
+     * @return Notification
      */
     public function setUser($user)
     {
@@ -80,27 +83,31 @@ class Follower
     }
 
     /**
-     * Set follower
+     * Set article
      *
-     * @param string $follower
+     * @param string $article
      *
-     * @return Follower
+     * @return Notification
      */
-    public function setFollower($follower)
+    public function setArticle($article)
     {
-        $this->follower = $follower;
+        $this->article = $article;
 
         return $this;
     }
 
     /**
-     * Get follower
+     * Get article
      *
      * @return string
      */
-    public function getFollower()
+    public function getArticle()
     {
-        return $this->follower;
+        return $this->article;
+    }
+
+    function __construct(){
+      $this->date = new \DateTime();
     }
 
     /**
@@ -108,7 +115,7 @@ class Follower
      *
      * @param \DateTime $date
      *
-     * @return Follower
+     * @return Notification
      */
     public function setDate($date)
     {
@@ -126,4 +133,29 @@ class Follower
     {
         return $this->date;
     }
+
+    /**
+     * Get viewed
+     *
+     * @return \Boolean
+     */
+    public function getViewed()
+    {
+        return $this->viewed;
+    }
+
+    /**
+     * Set viewed
+     *
+     * @param \Boolean $viewed
+     *
+     * @return Boolean
+     */
+    public function setViewed($viewed)
+    {
+        $this->viewed = $viewed;
+
+        return $this;
+    }
+
 }
