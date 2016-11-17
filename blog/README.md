@@ -1,38 +1,59 @@
-Télécharger le projet
-git clone bllablabla
+Projet ESGI : Blog Symfony
+========================
 
--------------------------
-
-Mettre à jour les packages
+#Mettre à jour les packages
+```Shell
 composer update
+```
 
--------------------------
-Importer la base de données
+#Importer la base de données
+```Shell
 php bin/console doctrine:schema:create
+```
 
-------------------------
-Mettre à jour la base de données
+#Mettre à jour la base de données
+```Shell
 php bin/console doctrine:schema:update --force
+```
 
-------------------------
-Importer les fixtures
+#Importer les fixtures
+```Shell
 php bin/console doctrine:fixtures:LoadAllData
+```
 
-------------------------
-Lancer le serveur
+#Lancer le serveur
+```Shell
 php bin/console server:run
+```
 
-------------------------
-Accéder à l'url: http://localhost:8000
-Vous disposez de trois comptes utilisateurs
-un utilisateur basic (login: user, mdp:user) qui permet :
-- de suivre des utilisateurs qui postent les articles
-- de recevoir des notifications des derniers article (si créateur suivi)
+#Parametres
 
-un utilisateur qui a le role de rédacteur (login: redacteur, mdp:redacteur) qui permet:
-- l'acces à un back-office
-- la gestion des catégories et des articles
+###Accéder au site:
+http://localhost:8000
 
-un utilisateur qui a le role admin (login: admin, mdp:admin) qui permet:
-- hérites des role précédents
-- accéde à la gestion des utilisateurs
+###Comptes utilisateur:
+
+#####Un utilisateur basic
+* Username: user
+* Password: user
+
+* Droits:
+Suivre des utilisateurs qui postent les articles
+Recevoir des notifications des derniers article (si créateur suivi)
+
+#####Un utilisateur rédacteur
+* Username: redacteur
+* Password: redacteur
+
+* Droits:
+Hérite des droits du rôle basic
+Accéde à un back-office
+Gestion des catégories et des articles
+
+#####Un utilisateur admin
+* Username: admin
+* Password: admin
+
+* Droit:
+Hérite des deux rôles précedents
+Accéde à la gestion des utilisateurs
