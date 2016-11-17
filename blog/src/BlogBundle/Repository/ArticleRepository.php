@@ -31,4 +31,15 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
 
            return $query->getResult();
       }
+
+      public function findArticleByUser($user){
+        $query =  $this
+            ->createQueryBuilder('a')
+            ->where('a.categories = :categorie')
+            ->setParameter(':categorie', $categorie)
+            ->orderBy('a.date', 'DESC')
+            ->getQuery();
+
+         return $query->getResult();
+      }
 }

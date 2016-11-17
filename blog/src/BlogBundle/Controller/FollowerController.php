@@ -189,4 +189,5 @@ class FollowerController extends Controller
 
       return new Response("L'utilisateur n'est maintenant plus suivis.");
     }
+
 }

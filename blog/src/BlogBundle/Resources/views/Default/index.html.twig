@@ -2,6 +2,37 @@
 
 {% block body %}
     <div class="content">
-      <h2>Bienvenue sur la page d'accueil</h2>
+      <h1 style="text-align:center;">Bienvenue sur notre blog</h1>
+      <h2 style="text-align:center;">Nos catégories</h2>
+
+          <div class="categories" style="display:flex;flex-wrap:wrap; flex-direction:row; justify-content:center;margin-left:50px; margin-right:50px;">
+          {% for categorie in categories %}
+          <div class="itemCategorie" style=" width:200px; height:200px; border:2px solid black; margin-left:40px; margin-right:40px;margin-top:40px; margin-bottom:40px;">
+            <a href="{{ path('category_show', { 'slug': categorie.slug }) }}">{{categorie.nom}}</a>
+          </div>
+
+          {% endfor %}
+          </div>
+
+            <h2 style="text-align:center;">Nos derniers articles</h2>
+
+          {% for article in articles %}
+          <div class="itemArticle">
+              <div class="photoArticle">
+
+              </div>
+              <div class="contentArticle">
+                <a href="{{ path('article_show', { 'slug': article.slug }) }}">
+                  {{ article.titre }}
+                </a>
+                <div class="resumeArticle">
+                  {{ article.resume }}
+                </div>
+                <div class="dateArticle">
+                  {{ article.date|date('Y-m-d') }}
+                </div>
+              </div>
+          </div>
+          {% endfor %}
     </div>
 {% endblock %}

@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use BlogBundle\Entity\Article;
 use BlogBundle\Entity\Category;
 use BlogBundle\Entity\Notification;
+use BlogBundle\Entity\Follower;
 use BlogBundle\Form\ArticleType;
 
 /**
@@ -33,6 +34,29 @@ class ArticleController extends Controller
         return $this->render('article/index.html.twig', array(
             'articles' => $articles,
         ));
+    }
+
+    /**
+     * follow an user
+     *
+     * @Route("/article/suivis", name="article_suivis")
+     * @Method("GET")
+     */
+    public function usersSuiviAction()
+    {
+      $em = $this->getDoctrine()->getManager();
+      $user = $this->getUser();
+
+      $followers = $em->getRepository('BlogBundle:Follower')->findByFollower($user);
+
+      foreach($followers as $follower){
+        $articles = $em->getRepository('BlogBundle:Article')->findByAuthor($follower->getUser());
+      }
+
+      return $this->render('article/suivi.html.twig', array(
+          'followers' => $followers,
+          'articles' => $articles
+      ));
     }
 
     /**

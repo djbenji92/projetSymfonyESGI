@@ -7,7 +7,7 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Date</th>
+                <th>User</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -15,7 +15,7 @@
         {% for follower in followers %}
             <tr>
                 <td><a href="{{ path('follower_show', { 'id': follower.id }) }}">{{ follower.id }}</a></td>
-                <td>{{ follower.date }}</td>
+                <td>{{ follower.user }}</td>
                 <td>
                     <ul>
                         <li>

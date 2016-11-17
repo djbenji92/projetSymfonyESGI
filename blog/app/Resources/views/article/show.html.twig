@@ -8,14 +8,17 @@
             <tr>
                 <th>Crée par </th>
                 <td>{{ article.author }} le {{ article.date|date('Y-m-d')}}</td>
-                {% if userSuivi %}
-                    <div id="stopSuivre" class="suivre-user">Ne plus suivre</div>
-                    <div id="suivre" class="suivre-user">Suivre</div>
+                {% if app.user %}
+                  {% if userSuivi %}
+                      <div id="stopSuivre" class="suivre-user">Ne plus suivre</div>
+                      <div id="suivre" class="suivre-user">Suivre</div>
+                  {% endif %}
+                  {% if userSuivi == false %}
+                      <div id="suivre" class="suivre-user">Suivre</div>
+                      <div id="stopSuivre" class="suivre-user">Ne plus suivre</div>
+                  {% endif %}
                 {% endif %}
-                {% if userSuivi == false %}
-                    <div id="suivre" class="suivre-user">Suivre</div>
-                    <div id="stopSuivre" class="suivre-user">Ne plus suivre</div>
-                {% endif %}
+
             </tr>
             <tr>
                 <th>Titre</th>

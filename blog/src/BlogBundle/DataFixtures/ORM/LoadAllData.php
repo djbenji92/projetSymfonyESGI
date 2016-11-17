@@ -50,6 +50,19 @@ class LoadAllData extends AbstractFixture implements OrderedFixtureInterface
           $category = new Category();
           $category->setNom($nomCategorie);
           $manager->persist($category);
+
+          $article = new Article();
+          $article->setTitre($category->getNom());
+          $article->setContenu('<p style="text-align: center;"><span style="font-size:18px"><strong>'.$category->getnom().'</strong></span></p>
+  <p><strong><span style="font-size:16px">I/ Les bases&nbsp;</span></strong></p>
+  <p><span style="font-size:12px">Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;</span></p>
+  <p><strong><span style="font-size:16px">I/ Les components</span></strong></p>
+  <p><span style="font-size:12px">Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;Lorem ipsum bla bla bla bla bla bla bla bla&nbsp;</span></p>');
+          $article->setResume('A travers ce tutoriel vous allez découvrir les toutes premières base de React JS.');
+          $article->setDate(new \DateTime());
+          $article->setAuthor($userRedacteur);
+          $article->setCategories($category);
+          $manager->persist($article);
         }
 
         $manager->flush();
