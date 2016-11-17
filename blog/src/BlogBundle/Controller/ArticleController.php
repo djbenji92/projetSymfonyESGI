@@ -49,9 +49,14 @@ class ArticleController extends Controller
 
       $followers = $em->getRepository('BlogBundle:Follower')->findByFollower($user);
 
-      foreach($followers as $follower){
-        $articles = $em->getRepository('BlogBundle:Article')->findByAuthor($follower->getUser());
+      if($followers){
+        foreach($followers as $follower){
+          $articles = $em->getRepository('BlogBundle:Article')->findByAuthor($follower->getUser());
+        }
+      } else{
+        $articles = "";
       }
+
 
       return $this->render('article/suivi.html.twig', array(
           'followers' => $followers,

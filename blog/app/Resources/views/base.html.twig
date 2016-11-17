@@ -41,8 +41,10 @@
                 )) }}
 
 
-                <li><a href="{{ path('fos_user_registration_register') }}">Inscription</a></li>
-                <li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
+                {% if (app.user == false) %}
+                  <li><a href="{{ path('fos_user_registration_register') }}">Inscription</a></li>
+                  <li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
+                {% endif %}
                 {% if app.user %}
                 <li><a href="{{ path('fos_user_security_logout') }}">Deconnexion</a></li>
                 {% endif %}

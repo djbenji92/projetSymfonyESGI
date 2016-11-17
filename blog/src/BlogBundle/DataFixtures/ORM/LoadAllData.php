@@ -45,10 +45,13 @@ class LoadAllData extends AbstractFixture implements OrderedFixtureInterface
         $manager->flush();
 
         //Category
+        $i = 0;
         $listeCategory = ['PHP', 'MongoDB', 'MySQL', 'Javascript'];
+        $listeImage = ['php.png', 'mongodb.png', 'mysql.png', 'javascript.png'];
         foreach($listeCategory as $nomCategorie){
           $category = new Category();
           $category->setNom($nomCategorie);
+          $category->setImage($listeImage[$i]);
           $manager->persist($category);
 
           $article = new Article();
@@ -63,6 +66,7 @@ class LoadAllData extends AbstractFixture implements OrderedFixtureInterface
           $article->setAuthor($userRedacteur);
           $article->setCategories($category);
           $manager->persist($article);
+          $i =  $i+1;
         }
 
         $manager->flush();

@@ -4,6 +4,7 @@ namespace BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Category
@@ -36,6 +37,26 @@ class Category
      * @ORM\Column(name="slug", type="string", length=255)
      */
     private $slug;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     *
+     * @Assert\NotBlank(message="Upload PNG")
+     * @Assert\File(mimeTypes={ "image/png" })
+     */
+    private $image;
+
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
 
 
     /**

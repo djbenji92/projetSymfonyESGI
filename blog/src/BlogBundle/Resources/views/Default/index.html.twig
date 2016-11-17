@@ -7,8 +7,9 @@
 
           <div class="categories" style="display:flex;flex-wrap:wrap; flex-direction:row; justify-content:center;margin-left:50px; margin-right:50px;">
           {% for categorie in categories %}
-          <div class="itemCategorie" style=" width:200px; height:200px; border:2px solid black; margin-left:40px; margin-right:40px;margin-top:40px; margin-bottom:40px;">
-            <a href="{{ path('category_show', { 'slug': categorie.slug }) }}">{{categorie.nom}}</a>
+          <div class="itemCategorie" style=" width:200px; height:200px; margin-left:40px; margin-right:40px;margin-top:40px; margin-bottom:40px;">
+            <a href="{{ path('category_show', { 'slug': categorie.slug }) }}"><img style="position:absolute;width:200px; height:200px;" src="{{ asset('uploads/images/' ~ categorie.image) }}"></a>
+            <!--<a style="position:absolute;width:200px;text-align:center;margin:auto; font-size:40px; color:red; line-height:200px;" >TEST</a>-->
           </div>
 
           {% endfor %}

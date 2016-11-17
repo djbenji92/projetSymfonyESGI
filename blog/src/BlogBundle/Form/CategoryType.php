@@ -5,6 +5,7 @@ namespace BlogBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class CategoryType extends AbstractType
 {
@@ -16,6 +17,7 @@ class CategoryType extends AbstractType
     {
         $builder
             ->add('nom')
+            ->add('image', FileType::class, array('label' => 'Image (PNG file)'))
         ;
     }
 
