@@ -56,6 +56,7 @@ li a:visited {
 }
 
 footer{
+  margin-top:50px;
   width:100%;
   height:250px;
   background-color: #2B2E39;
@@ -165,4 +166,11 @@ footer{
 }
 .not-viewed{
     background-color: #E9EBEC;
+}
+.center{
+  text-align:center;
+}
+.button-retour li a:link, .button-retour a:visited{
+  color:white;
+  text-decoration:none;
 }

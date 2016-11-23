@@ -2,11 +2,11 @@
 
 {% block body %}
 
-    <h1>Les articles de la catégorie {{ category.nom}}</h1>
+    <h1 class="center">Les articles de la catégorie {{ category.nom}}</h1>
     {% for article in articles %}
     <div class="itemArticle">
           <div class="photoArticle">
-
+            <img style="width:50px; height:50px; margin:auto;" src="{{ asset('uploads/images/' ~ category.image)}}">
           </div>
           <div class="contentArticle">
             <div class="titreArticle">
@@ -24,8 +24,8 @@
     </div>
     {% endfor %}
 
-
-    <a href="{{ path('category_index') }}">Retour a la liste des categories</a>
-
+    <div style="width:300px; height:60px; background-color:black; color:white; line-height:60px; margin:auto;" class="button-retour center">
+      <a style='color:white;' href="{{ path('homepage') }}">Retour a la liste des categories</a>
+    </div>
 
 {% endblock %}

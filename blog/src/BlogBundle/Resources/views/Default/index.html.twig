@@ -2,8 +2,8 @@
 
 {% block body %}
     <div class="content">
-      <h1 style="text-align:center;">Bienvenue sur notre blog</h1>
-      <h2 style="text-align:center;">Nos catégories</h2>
+      <h1 class="center">Bienvenue sur notre blog</h1>
+      <h2 class="center">Nos catégories</h2>
 
           <div class="categories" style="display:flex;flex-wrap:wrap; flex-direction:row; justify-content:center;margin-left:50px; margin-right:50px;">
           {% for categorie in categories %}
@@ -15,12 +15,12 @@
           {% endfor %}
           </div>
 
-            <h2 style="text-align:center;">Nos derniers articles</h2>
+            <h2 class="center">Nos derniers articles</h2>
 
           {% for article in articles %}
           <div class="itemArticle">
               <div class="photoArticle">
-
+                <img style="width:50px; height:50px; margin:auto;" src="{{ asset('uploads/images/' ~ article.categories.image)}}">
               </div>
               <div class="contentArticle">
                 <a href="{{ path('article_show', { 'slug': article.slug }) }}">
