@@ -8,7 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class ArticleType extends AbstractType
@@ -37,6 +37,20 @@ class ArticleType extends AbstractType
               'class' => 'BlogBundle:Category',
               'choice_label' => 'nom',
             ))
+
+            ->add('published', CheckboxType::class, array(
+                'label' => 'Publié',
+                'required' => false
+                )
+            )
+            ->add('date', DateTimeType::class, array(
+                'label' => 'Date de publication',
+                'input'=>'datetime',
+                'widget' => 'single_text',
+                'format' => 'dd-MM-yyyy',
+                'required' => true
+                )
+            )
         ;
     }
 

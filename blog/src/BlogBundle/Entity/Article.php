@@ -70,8 +70,15 @@ class Article
      */
     private $date;
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="published", type="boolean", nullable=true)
+     */
+    private $published;
+
     function __construct(){
-      $this->date = new \DateTime();
+        $this->date = new \DateTime();
     }
 
     /**
@@ -251,5 +258,29 @@ class Article
     public function getAuthor()
     {
         return $this->author;
+    }
+
+    /**
+     * Set published
+     *
+     * @param boolean $published
+     *
+     * @return Article
+     */
+    public function setPublished($published)
+    {
+        $this->published = $published;
+
+        return $this;
+    }
+
+    /**
+     * Get published
+     *
+     * @return boolean
+     */
+    public function getPublished()
+    {
+        return $this->published;
     }
 }

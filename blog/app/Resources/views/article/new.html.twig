@@ -5,20 +5,86 @@
       <h1>Article creation</h1>
 
       {{ form_start(form) }}
-           {{ form_label(form.titre, null, {'label_attr': {'style':'color:red' }}) }}
-          {{ form_errors(form.titre) }}
+        <div class="col-md-10">
+          <div class="form-group clearfix">
+              <div class="col-md-4">
+                  {{ form_label(form.titre, null, {'label_attr': {'style':'color:red' }}) }}
+                  {{ form_errors(form.titre) }}
+              </div>
+              <div class="col-md-8">
+                  {{ form_widget(form.titre, { 'attr':  {
+                    'class': 'toto'
+                }}) }}
+              </div>
+          </div>
 
-          {{ form_widget(form.titre, { 'attr':  {
-              'class': 'toto'
-          }}) }}
+          
+          <div class="col-md-2">
+              {{ form_label(form.published, null, {'label_attr': {'style':'color:red' }}) }}
+              {{ form_errors(form.published) }}
+          </div>
+          <div class="col-md-2">
+              {{ form_widget(form.published, { 'attr':  {
+                'class': 'toto'
+            }}) }}
+          </div>
+      
+      
+          <div class="col-md-2">
+          {{ form_label(form.date, null, {'label_attr': {'class':'control-label' }}) }}
+          {{ form_errors(form.date) }}
+          </div>
+          <div class="input-group date">
+              {{ form_widget(form.date, { 'attr':  {
+                  'class': 'form-control'
+              }}) }}
 
-          <ul>
-            {% for categorie in form.categories %}
-              <li>{{form_row(categorie.nom)}}</li>
-            {% endfor %}
-          </ul>
+              <span class="input-group-btn">
+                  <button type="button" class="btn btn-primary date-set"><i class="fa fa-calendar"></i></button>
+              </span>
+          </div>
+          
 
-          <input type="submit" value="Create" />
+          <div class="form-group clearfix">
+              <div class="col-md-4">
+                  {{ form_label(form.categories, null, {'label_attr': {'style':'color:red' }}) }}
+                  {{ form_errors(form.categories) }}
+              </div>
+              <div class="col-md-8">
+                  {{ form_widget(form.categories, { 'attr':  {
+                    'class': 'toto'
+                }}) }}
+              </div>
+          </div>
+
+          <div class="form-group clearfix">
+              <div class="col-md-4">
+                  {{ form_label(form.resume, null, {'label_attr': {'style':'color:red' }}) }}
+                  {{ form_errors(form.resume) }}
+              </div>
+              <div class="col-md-8">
+                  {{ form_widget(form.resume, { 'attr':  {
+                    'class': 'toto'
+                }}) }}
+              </div>
+          </div>
+
+          <div class="form-group clearfix">
+              <div class="col-md-12">
+                  {{ form_label(form.contenu, null, {'label_attr': {'style':'color:red' }}) }}
+                  {{ form_errors(form.contenu) }}
+              </div>
+              <div class="col-md-12">
+                  {{ form_widget(form.contenu, { 'attr':  {
+                    'class': 'toto'
+                }}) }}
+              </div>
+          </div>
+        </div>
+
+          
+
+          <input class="btn btn-info col-md-3" type="submit" value="Create" style="margin-left:30px" />
       {{ form_end(form) }}
 
       <ul>
