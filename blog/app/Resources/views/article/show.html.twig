@@ -1,45 +1,47 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Article</h1>
+    <div class="col-md-12">
+      <h1>Article</h1>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Crée par </th>
-                <td>{{ article.author }} le {{ article.date|date('Y-m-d')}}</td>
-                {% if app.user %}
-                  {% if userSuivi %}
-                      <div id="stopSuivre" class="suivre-user">Ne plus suivre</div>
-                      <div id="suivre" class="suivre-user">Suivre</div>
+      <table>
+          <tbody>
+              <tr>
+                  <th>Crée par </th>
+                  <td>{{ article.author }} le {{ article.date|date('Y-m-d')}}</td>
+                  {% if app.user %}
+                    {% if userSuivi %}
+                        <div id="stopSuivre" class="suivre-user">Ne plus suivre</div>
+                        <div id="suivre" class="suivre-user">Suivre</div>
+                    {% endif %}
+                    {% if userSuivi == false %}
+                        <div id="suivre" class="suivre-user">Suivre</div>
+                        <div id="stopSuivre" class="suivre-user">Ne plus suivre</div>
+                    {% endif %}
                   {% endif %}
-                  {% if userSuivi == false %}
-                      <div id="suivre" class="suivre-user">Suivre</div>
-                      <div id="stopSuivre" class="suivre-user">Ne plus suivre</div>
-                  {% endif %}
-                {% endif %}
 
-            </tr>
-            <tr>
-                <th>Titre</th>
-                <td>{{ article.titre }}</td>
-            </tr>
+              </tr>
+              <tr>
+                  <th>Titre</th>
+                  <td>{{ article.titre }}</td>
+              </tr>
 
-        </tbody>
-    </table>
+          </tbody>
+      </table>
+    </div>
 
-    <div>
+    <div class="col-md-8" style="margin:30px 0">
         {{ article.contenu|raw  }}
     </div>
 
     <div class="fb-comments" data-href="{{ app.request.uri }}" data-numposts="5"></div>
     {% if is_granted("ROLE_ADMIN") %}
-      <ul>
+      <ul style="color:#2B2E39;">
           <li>
-              <a href="{{ path('article_index') }}">Back to the list</a>
+              <a href="{{ path('article_index') }}" style="color:#2B2E39; text-decoration:underline">Back to the list</a>
           </li>
           <li>
-              <a href="{{ path('article_edit', { 'id': article.id }) }}">Edit</a>
+              <a href="{{ path('article_edit', { 'id': article.id }) }}" style="color:#2B2E39; text-decoration:underline">Edit</a>
           </li>
 
           <li>

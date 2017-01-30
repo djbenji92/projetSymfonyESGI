@@ -98,7 +98,12 @@ class ArticleController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            //Appel au service
+            $mySecurity = $this->container->get('app_security');
+
+
             $article->setAuthor($this->getUser());
+            $article->setContenu($mySecurity->clean($article->getContenu()));
             $em->persist($article);
             $em->flush();
 
@@ -177,6 +182,10 @@ class ArticleController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            //Appel au service
+            $mySecurity = $this->container->get('app_security');
+
+            $article->setContenu($mySecurity->clean($article->getContenu()));
             $em->persist($article);
             $em->flush();
 

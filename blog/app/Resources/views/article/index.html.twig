@@ -4,15 +4,13 @@
     <div class="content">
       <h1>Espace adminsitrateur:  liste des articles</h1>
       <a href="{{path('article_new')}}">Créer un nouveau article</a>
-      <table>
+      <table class="table table-striped table-hover" style="margin:60px 0">
           <thead>
               <tr>
                   <th>Slug</th>
                   <th>Titre</th>
                   <th>Resume</th>
-                  <th>Contenu</th>
                   <th>Date</th>
-                  <th>Validate</th>
                   <th>Actions</th>
               </tr>
           </thead>
@@ -22,27 +20,14 @@
                   <td><a href="{{ path('article_show', { 'slug': article.slug }) }}">{{ article.slug }}</a></td>
                   <td>{{ article.titre }}</td>
                   <td>{{ article.resume }}</td>
-                  <td>{{ article.contenu }}</td>
                   <td>{{ article.date|date('Y-m-d') }}</td>
-                      <ul>
-                          <li>
-                              <a href="{{ path('article_show', { 'slug': article.slug }) }}">show</a>
-                          </li>
-                          <li>
-                              <a href="{{ path('article_edit', { 'id': article.id }) }}">edit</a>
-                          </li>
-                      </ul>
+                  <td><a href="{{ path('article_show', { 'slug': article.slug }) }}">show</a>
+                      <a href="{{ path('article_edit', { 'id': article.id }) }}">edit</a>
                   </td>
               </tr>
           {% endfor %}
           </tbody>
       </table>
-
-      <ul>
-          <li>
-              <a href="{{ path('article_new') }}">Create a new entry</a>
-          </li>
-      </ul>
 
       <div class="itemArticle">
           <div class="photoArticle">
@@ -50,11 +35,10 @@
           </div>
           <div class="contentArticle">
             <div class="titreArticle">
-              Mon premier article
+              Exemple d'article
             </div>
             <div class="resumeArticle">
-              Voici le résumé de mon premier article que vous retrouvez
-              ici blablabla blablabla
+              Voici un exemple d'article. A vous de jouer !
             </div>
           </div>
       </div>

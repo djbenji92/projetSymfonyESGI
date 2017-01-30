@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Super blog | Admin !{% endblock %}</title>
         {% block stylesheets %}
           <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" media="screen">
           <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}" media="screen">
@@ -22,8 +22,8 @@
 
           <nav>
             <ul>
-                <li><a href="{{path('article_index')}}">Rédiger un un article</a></li>
-                <li><a href="{{path('category_index')}}">Ajouter une catégorie</a></li>
+                <li><a href="{{path('article_index')}}">Gestion des articles</a></li>
+                <li><a href="{{path('category_index')}}">Gestion des catégories</a></li>
               {% if is_granted("ROLE_ADMIN") %}
                 <li><a href="{{path('user_index')}}">Gestion des utilisateurs</a></li>
               {% endif %}
